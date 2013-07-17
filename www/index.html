@@ -32,9 +32,17 @@
 				try {
 					var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 					scanner.scan(function (result) {
-						var thisURL = result.text + '&__cordovaVersion=' + device.cordova + '&__cordovaPlatform=' + device.platform;
-						window.location.href = thisURL;
-					}, 
+						
+						alert("We got a barcode\n" +
+        			"Result: " + result.text + "\n" +
+                  	"Format: " + result.format + "\n" +
+                  	"Cancelled: " + result.cancelled);
+    				}, 
+    						
+						
+						
+						
+				
 						function (error) {
 							navigator.notification.alert("Scanning failed: " + error);
 					});
